@@ -54,10 +54,7 @@ class PagesController < ApplicationController
     # Process the response
     if response.code.to_i == 200
       simbrief_response ="ok"
-
       @object_json = JSON.parse(response.body, object_class: OpenStruct)
-
-
 
     else
       simbrief_response = "nok"
