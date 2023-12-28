@@ -1,0 +1,55 @@
+<h1><%= @Test %></h1>
+<p><%= @computed_url %></p>
+<p><%= @simbrief_response %></p>
+
+<h2>Vol</h2>
+<table class="table table-striped">
+  <thead class="thead-light">
+  <tr>
+    <th scope="col">Flight Number</th>
+    <th scope="col">Depature</th>
+    <th scope="col">Arrival</th>
+    <th scope="col">Alternate</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td><%= @object_json.general.icao_airline+@object_json.general.flight_number %></td>
+    <td><%= @object_json.origin.icao_code %></td>
+    <td><%= @object_json.destination.icao_code %></td>
+    <td><%= @object_json.alternate.icao_code %></td>
+  </tr>
+  </tbody>
+</table>
+<h2>Navlog</h2>
+<table class="table table-striped">
+  <thead class="thead-light">
+  <tr>
+    <th scope="col">Fix</th>
+    <th scope="col">Est. Total Time</th>
+    <th scope="col">Real Total Time</th>
+    <th></th>
+    <th scope="col">Est. Fuel Burn</th>
+    <th scope="col">Real Fuel Burn</th>
+    <th></th>
+    <th scope="col">Est. Fuel Onboard</th>
+  </tr>
+  </thead>
+  <tbody>
+<% @object_json.navlog.fix.each do |fix| %>
+
+    <tr>
+      <td><%= fix.ident %></td>
+      <td><%= seconds_to_hm(fix.time_total.to_i) %></td>
+      <td></td>
+      <td></td>
+      <td><%= fix.fuel_totalused %></td>
+      <td></td>
+      <td></td>
+      <td><%= fix.fuel_plan_onboard %></td>
+    </tr>
+
+<% end %>
+  </tbody>
+</table>
+</div>
