@@ -37,7 +37,8 @@ class PagesController < ApplicationController
       else
         puts @object_json.general.icao_airline+@object_json.general.flight_number
       end
-
+    else
+      render 'error'
     end
   end
  end

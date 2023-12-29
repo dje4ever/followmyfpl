@@ -10,6 +10,6 @@ Rails.application.routes.draw do
 
   root "pages#index"
   get 'result', to:"pages#result"
-
+  get 'error', to:"pages#error"
 end
 
