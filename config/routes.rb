@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   # root "posts#index"
 
   root "pages#index"
-  get "/result", to:"pages#result"
+  get 'result', to:"pages#result"
 
 end
 
