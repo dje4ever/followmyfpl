@@ -84,7 +84,7 @@
               <div>
                 <%= form_with url: '/result', method: :get do |form| %>
                   <%= form.text_field :simbriefID %>
-                  <%= form.submit "Let's go" %>
+                  <%= form.submit "Let's go", name: nil %>
                 <% end %>
               </div>
             </li>
